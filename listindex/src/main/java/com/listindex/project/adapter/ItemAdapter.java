@@ -69,10 +69,7 @@ public class  ItemAdapter extends BaseAdapter {
         holder.nameView.setText(name);
 
 
-        if(null!=indexView){
-            int pos=itemArray.get(position).getFirstChar()-'a'+1;
-            indexView.changeTextViewState(pos,true);
-        }
+
         return convertView;
     }
 
