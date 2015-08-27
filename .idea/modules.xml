@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidUI_Waylen.iml" filepath="$PROJECT_DIR$/AndroidUI_Waylen.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/copyqqscrollview/copyqqscrollview.iml" filepath="$PROJECT_DIR$/copyqqscrollview/copyqqscrollview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dewdropview/dewdropview.iml" filepath="$PROJECT_DIR$/dewdropview/dewdropview.iml" />
     </modules>
   </component>
 </project>
