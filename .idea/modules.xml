@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/copyqqscrollview/copyqqscrollview.iml" filepath="$PROJECT_DIR$/copyqqscrollview/copyqqscrollview.iml" />
       <module fileurl="file://$PROJECT_DIR$/dewdropview/dewdropview.iml" filepath="$PROJECT_DIR$/dewdropview/dewdropview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listindex/listindex.iml" filepath="$PROJECT_DIR$/listindex/listindex.iml" />
     </modules>
   </component>
 </project>

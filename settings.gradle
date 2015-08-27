@@ -1,1 +1,1 @@
-include ':app', ':copyqqscrollview', ':dewdropview'
+include ':app', ':copyqqscrollview', ':dewdropview', ':listindex'
