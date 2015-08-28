@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.listindex.project.adapter.ItemAdapter;
-import com.listindex.project.view.IndexComparator;
+import com.listindex.project.bean.User;
 import com.listindex.project.view.IndexView;
 
 import java.util.ArrayList;
@@ -17,32 +17,32 @@ import java.util.Collections;
 import java.util.Random;
 
 public class MainActivity extends Activity {
-    private ListView itemListView;
+    private ListView listView;
     private IndexView indexView;
-    ArrayList<Item> itemArray = new ArrayList<Item>();
+    /**
+     * 列表数据
+     */
+    ArrayList<User> itemArray = getListData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
 
-        itemListView = (ListView) findViewById(R.id.item_list);
-        for (int i = 0; i < 300; i++) {
-            itemArray.add(new Item(generateRandomWord(), R.mipmap.ic_launcher));
-        }
+    }
 
-        Collections.sort(itemArray, new IndexComparator());
-        ItemAdapter itemAdapter = new ItemAdapter(this, itemArray, ((IndexView) findViewById(R.id.index)));
-
-        TextView selectIndexView = (TextView) findViewById(R.id.select_index);
-
+    private void initView() {
+        listView = (ListView) findViewById(R.id.listView);
         indexView = (IndexView) findViewById(R.id.index);
-        indexView.init(itemListView, selectIndexView);
+        TextView selectIndexView = (TextView) findViewById(R.id.select_index);
+        indexView.init(listView, selectIndexView);
 
-        itemListView.setAdapter(itemAdapter);
+        ItemAdapter itemAdapter = new ItemAdapter(this, itemArray, indexView);
+        listView.setAdapter(itemAdapter);
 
 
-        itemListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             int position;
 
             /**
@@ -52,19 +52,8 @@ public class MainActivity extends Activity {
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 // 不滚动时保存当前滚动到的位置
                 if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-                    if (null != indexView) {
-                        int pos = itemArray.get(position).getFirstChar() /*- 'a'*/;
-                        if(pos<65|pos>91){
-                            indexView.changeTextViewState(0, true);
-                        }else{
-                            pos-='a';
-                            indexView.changeTextViewState(0, true);
-                        }
-                        System.out.println("位置0:" + pos);
-                    }
-                    position = itemListView.getFirstVisiblePosition();
-                    System.out.println("位置:" + position);
                 }
+
             }
 
             /**
@@ -72,22 +61,34 @@ public class MainActivity extends Activity {
              */
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-            }
+                    if (null != indexView) {
+                        position = listView.getFirstVisiblePosition();
+                        int i=0;
+                        for(String type:ItemAdapter.IndexArrar){
+                            if(type.equals(((User)listView.getAdapter().getItem(position)).getType())){
+                                i++;
+                                break;
+                            }
+                            i++;
+                        }
+                        indexView.changeTextViewState(i,false);
+                        System.out.println("位置:" + i);
+                    }
+                }
         });
-
-
     }
 
-    Random random = new Random();
-
-    private String generateRandomWord() {
-
-        int length = 1 + random.nextInt(5);
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append((char) (32 + random.nextInt(127 - 32)));
+    private ArrayList<User> getListData() {
+        ArrayList<User> arrayList=new ArrayList<User>();
+        for(String type:ItemAdapter.IndexArrar)
+        for(int i=0;i<10;i++){
+            User user=new User();
+            user.setType(type);
+            user.setName(type + "_item" + i);
+            arrayList.add(user);
         }
-        return sb.toString();
+        return arrayList;
     }
+
 
 }

@@ -18,6 +18,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.listindex.project.adapter.ItemAdapter;
+import com.listindex.project.bean.User;
+
 import java.util.ArrayList;
 
 /**
@@ -30,6 +33,8 @@ import java.util.ArrayList;
 public class IndexView extends LinearLayout {
 
     private ArrayList<TextView> textViewList = new ArrayList<TextView>();
+
+    private ListView listView;
 
     public IndexView(Context context) {
         super(context);
@@ -46,6 +51,7 @@ public class IndexView extends LinearLayout {
     private int  lastIndex;
     public void init(final ListView listView, final TextView textView) {
         setOrientation(VERTICAL);
+        this.listView=listView;
         //
         addTextView('#');
         for (int i = 0; i < 26; i++) {
@@ -71,18 +77,20 @@ public class IndexView extends LinearLayout {
                             int localPosition;
                             if (position == 0) {
                                 c = '#';
-                                localPosition = 0;
+//                                localPosition = 0;
+                                listView.setSelection(0);
                             } else {
-                                c = (char) ('A' - 1 + position);
-                                localPosition = searchPosition(listAdapter, c);
+//                                c = (char) ('A' - 1 + position);
+//                                localPosition = searchPosition(listAdapter, c);
+                                searchAndSelectListView(position);
                             }
-                            if (localPosition != -1) {
-                                listView.setSelection(localPosition);
-                            }
+//                            if (localPosition != -1) {
+//                                listView.setSelection(localPosition);
+//                            }
                             lastIndex=position;
                             changeTextViewState(position,true);
 
-                            textView.setText(String.valueOf(c));
+                            textView.setText(ItemAdapter.IndexArrar[position]);
                             if (textView.getVisibility() == View.GONE) {
                                 textView.setVisibility(View.VISIBLE);
                             }
@@ -139,12 +147,19 @@ public class IndexView extends LinearLayout {
         addView(textView, lllp);
     }
 
-    private int searchPosition(ListAdapter listAdapter, char c) {
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            if (c == ((IndexString) (listAdapter.getItem(i))).getFirstChar()) {
-                return i;
+
+    public void searchAndSelectListView(int indexViewPos){
+     String type= ItemAdapter.IndexArrar[indexViewPos];
+         int selectPos=0;
+        for (int i = 0; i < listView.getAdapter().getCount(); i++) {
+            if (type.equals(((User) (listView.getAdapter().getItem(i))).getType())) {
+                selectPos=i;
+                break;
             }
         }
-        return -1;
+        listView.setSelection(selectPos);
     }
+
+
+
 }

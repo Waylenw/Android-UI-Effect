@@ -12,8 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.listindex.project.Item;
 import com.listindex.project.R;
+import com.listindex.project.bean.User;
 import com.listindex.project.view.IndexView;
 
 import java.util.ArrayList;
@@ -21,12 +21,15 @@ import java.util.Random;
 
 public class  ItemAdapter extends BaseAdapter {
 
+    public  static  final String IndexArrar[]=new String[]{"#","A","B","C","D","E","F","G","H","I","J","k","L","M","N","O","P","Q","R","S","T","U",
+    "V","W","X","Y","Z"};
+
     private Context context;
-    private ArrayList<Item> itemArray = new ArrayList<Item>();
+    private ArrayList<User> itemArray = new ArrayList<User>();
 
     private IndexView indexView=null;
 
-    public ItemAdapter(Context context,ArrayList<Item> itemArray,IndexView indexView) {
+    public ItemAdapter(Context context,ArrayList<User> itemArray,IndexView indexView) {
         this.context = context;
         this.itemArray=itemArray;
         this.indexView=indexView;
@@ -63,9 +66,9 @@ public class  ItemAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        Item item = itemArray.get(position);
+        User item = itemArray.get(position);
         String name = item.getName();
-        holder.picView.setImageResource(item.getPic());
+        holder.picView.setImageResource(R.mipmap.ic_launcher);
         holder.nameView.setText(name);
 
 
