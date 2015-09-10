@@ -15,5 +15,4 @@
     列表索引,可拖动，可点击，可根据listview的滑动位置，判断当前进行移动item的索引。
 ![](https://raw.githubusercontent.com/Waylenwang/AndroidUI_Waylen/master/screenpic/indexView.gif)
 
-![](http://7xloss.com1.z0.glb.clouddn.com/androidtudio_add_cvs.png?attname=&e=1441959668&token=Kvdv_B7BtIvva-E5Si9Y0awzFA7ZpBQ5JFulGCBn:UgFdKxY-5zazbUXbatjjCEwJ2as)
 
