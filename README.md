@@ -1,5 +1,5 @@
 # AndroidUI效果
-  目前包含的内容如下copyqqscrollview(仿QQ下拉回弹)、dewdropveiw(水滴拖动效果)、[listindex](#listindex)(列表索引)
+  目前包含的内容如下copyqqscrollview(仿QQ下拉回弹)、dewdropveiw(水滴拖动效果)、[listindex(列表索引)](#listindex)
   
   
 
@@ -12,5 +12,5 @@
 ![](https://raw.githubusercontent.com/Waylenwang/AndroidUI_Waylen/master/screenpic/dewdropview.gif)
 
 ##<a name="#listindex">listindex</a>
-  列表索引,可拖动，可点击，可根据listview的滑动进行移动
+列表索引,可拖动，可点击，可根据listview的滑动位置，判断当前进行移动item的索引。
 ![](https://raw.githubusercontent.com/Waylenwang/AndroidUI_Waylen/master/screenpic/indexView.gif)
