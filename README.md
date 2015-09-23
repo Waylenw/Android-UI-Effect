@@ -19,4 +19,8 @@
     基于WheelView的对话框
 ![](https://raw.githubusercontent.com/Waylenwang/AndroidUI_Waylen/master/screenpic/wheelview.gif)
 
+##imgdetail
+    图片详情的demo,类似于微信朋友圈点击朋友图片
+![](https://github.com/waylen505/Au/blob/master/imgdetail/screen/screen.gif)<br/>
+
 
