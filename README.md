@@ -15,4 +15,7 @@
     列表索引,可拖动，可点击，可根据listview的滑动位置，判断当前进行移动item的索引。
 ![](https://raw.githubusercontent.com/Waylenwang/AndroidUI_Waylen/master/screenpic/indexView.gif)
 
+##wheelview
+  基于WheelView的对话框
+
 
