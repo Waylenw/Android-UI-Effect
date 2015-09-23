@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
             @Override
             public void onSelected(int selectedIndex, String item) {
-                 Log.d(TAG, "[Dialog]selectedIndex: " + selectedIndex + ", item: " + item);
+                Log.d(TAG, "[Dialog]selectedIndex: " + selectedIndex + ", item: " + item);
             }
         });
 
